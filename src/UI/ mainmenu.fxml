@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="136.0" prefWidth="1000.0" style="-fx-background-color: red;" AnchorPane.bottomAnchor="464.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Text fill="#f8f5f5" layoutX="309.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bakir Khata" textAlignment="CENTER" wrappingWidth="381.66455078125" y="50.0">
+                     <font>
+                        <Font name="System Bold" size="45.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <VBox layoutX="373.0" layoutY="188.0" prefHeight="371.0" prefWidth="254.0" spacing="20.0" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="373.0" AnchorPane.rightAnchor="373.0" AnchorPane.topAnchor="188.0">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="248.0" style="-fx-background-color: transparent;" text="PRODUCTS" textAlignment="CENTER" textFill="RED" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="248.0" style="-fx-background-color: transparent;" text="CATAGORY" textAlignment="CENTER" textFill="RED" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="246.0" style="-fx-background-color: transparent;" text="DAILY TRANSACTION" textAlignment="CENTER" textFill="RED" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="245.0" style="-fx-background-color: transparent;" text="DUE LIST" textAlignment="CENTER" textFill="RED" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="253.0" style="-fx-background-color: transparent;" text="PROFIT" textAlignment="CENTER" textFill="RED" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="248.0" style="-fx-background-color: transparent;" text="SETTINGS" textAlignment="CENTER" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
