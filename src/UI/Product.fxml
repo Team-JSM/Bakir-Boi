@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Product">
+   <children>
+      <Button layoutX="183.0" layoutY="166.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="234.0" style="-fx-background-color: red;" text="Add Product" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="183.0" layoutY="263.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="234.0" style="-fx-background-color: red;" text="Draft Product" textFill="#fffbfb">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="183.0" layoutY="69.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="234.0" style="-fx-background-color: red;" text="Product List" textFill="#fffbfb">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
