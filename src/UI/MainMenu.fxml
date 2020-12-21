@@ -21,14 +21,9 @@
                   </Text>
                </children>
             </Pane>
-            <VBox layoutX="373.0" layoutY="188.0" prefHeight="371.0" prefWidth="254.0" spacing="20.0" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="373.0" AnchorPane.rightAnchor="373.0" AnchorPane.topAnchor="188.0">
+            <VBox layoutX="373.0" layoutY="204.0" prefHeight="371.0" prefWidth="254.0" spacing="20.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="373.0" AnchorPane.rightAnchor="373.0" AnchorPane.topAnchor="204.0">
                <children>
-                  <Button fx:id="productButton" alignment="CENTER" mnemonicParsing="false" onAction="#productButtonEventHandle" prefHeight="50.0" prefWidth="248.0" style="-fx-background-color: transparent;" text="PRODUCTS" textAlignment="CENTER" textFill="RED" VBox.vgrow="ALWAYS">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="categoryButton" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="248.0" style="-fx-background-color: transparent;" text="CATEGORY" textAlignment="CENTER" textFill="RED" VBox.vgrow="ALWAYS">
+                  <Button fx:id="inventoryButton" alignment="CENTER" mnemonicParsing="false" onAction="#inventoryButtonEventHandle" prefHeight="50.0" prefWidth="248.0" style="-fx-background-color: transparent;" text="INVENTORY" textAlignment="CENTER" textFill="RED" VBox.vgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
