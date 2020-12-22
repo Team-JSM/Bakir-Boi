@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -7,9 +8,10 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.TransactionListController">
+<AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.TransactionListController">
    <children>
-      <TableView minHeight="0.0" prefHeight="600.0" prefWidth="1000.0">
+      <Button fx:id="backButton" layoutY="-1.0" mnemonicParsing="false" onAction="#backButtonEventHandle" prefHeight="31.0" prefWidth="24.0" style="-fx-background-color: transparent;" />
+      <TableView layoutY="28.0" minHeight="0.0" prefHeight="564.0" prefWidth="1000.0">
          <columns>
             <TableColumn prefWidth="104.0" resizable="false" text="ID" />
             <TableColumn prefWidth="197.0" resizable="false" text="Time" />
