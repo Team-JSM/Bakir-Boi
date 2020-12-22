@@ -28,7 +28,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="transactionButton" alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="246.0" style="-fx-background-color: transparent;" text="DAILY TRANSACTION" textAlignment="CENTER" textFill="RED" VBox.vgrow="ALWAYS">
+                  <Button fx:id="transactionButton" alignment="CENTER" mnemonicParsing="false" onAction="#transactionButtonEventHandle" prefHeight="50.0" prefWidth="246.0" style="-fx-background-color: transparent;" text="DAILY TRANSACTION" textAlignment="CENTER" textFill="RED" VBox.vgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>

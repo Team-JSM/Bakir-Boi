@@ -49,5 +49,25 @@ public class MainMenuController implements Initializable {
 
     }
 
+    public void transactionButtonEventHandle(ActionEvent event) {
+
+        try {
+            FileInputStream f = new FileInputStream(
+                    new File(System
+                            .getProperty("user.dir")
+                            .concat("\\src\\UI\\" +
+                                    "TransactionList.fxml")));
+
+            FXMLLoader loader = new FXMLLoader();
+            AnchorPane newPane = loader.load(f);
+
+            rootPane.getChildren().setAll(newPane);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
 
 }
