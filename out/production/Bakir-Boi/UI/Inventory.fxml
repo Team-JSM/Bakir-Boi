@@ -36,7 +36,7 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="categoryButton" alignment="CENTER" layoutX="10.0" layoutY="150.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="248.0" style="-fx-background-color: transparent;" text="Category" textAlignment="CENTER" textFill="RED">
+                        <Button fx:id="categoryButton" alignment="CENTER" layoutX="10.0" layoutY="150.0" mnemonicParsing="false" onAction="#categoryButtonEventHandle" prefHeight="50.0" prefWidth="248.0" style="-fx-background-color: transparent;" text="Category" textAlignment="CENTER" textFill="RED">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>

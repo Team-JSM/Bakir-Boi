@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.CategoryListController">
+   <children>
+      <TableView minHeight="0.0" prefHeight="500.0" prefWidth="768.0">
+         <columns>
+            <TableColumn prefWidth="200.0" resizable="false" text="ID" />
+            <TableColumn prefWidth="250.0" resizable="false" text="NAME" />
+            <TableColumn prefWidth="300.0" resizable="false" text="Description" />
+         </columns>
+      </TableView>
+      <HBox layoutX="99.0" layoutY="514.0" prefHeight="31.0" prefWidth="245.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="424.0" AnchorPane.topAnchor="514.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="JUSTIFY" wrappingWidth="55.1767578125">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <TextField />
+         </children>
+      </HBox>
+      <HBox fillHeight="false" layoutX="360.0" layoutY="514.0" prefHeight="31.0" prefWidth="302.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="370.0" AnchorPane.rightAnchor="96.0" AnchorPane.topAnchor="514.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="93.90234375">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Text>
+            <TextArea maxHeight="31.0" prefHeight="31.0" />
+         </children>
+      </HBox>
+      <Button layoutX="537.0" layoutY="561.0" mnemonicParsing="false" text="ADD CATEGORY">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

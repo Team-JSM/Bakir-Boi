@@ -59,6 +59,26 @@ public class InventoryController implements Initializable {
 
     }
 
+    public void categoryButtonEventHandle(ActionEvent event) {
+
+        try {
+            FileInputStream f = new FileInputStream(
+                    new File(System
+                            .getProperty("user.dir")
+                            .concat("\\src\\UI\\" +
+                                    "CategoryList.fxml")));
+
+            FXMLLoader loader = new FXMLLoader();
+            AnchorPane newPane = loader.load(f);
+
+            rightPane.getChildren().setAll(newPane);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 
