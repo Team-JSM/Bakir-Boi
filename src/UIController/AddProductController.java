@@ -29,7 +29,7 @@ public class AddProductController implements Initializable {
             ImageView img = new ImageView(new Image(input));
             backButton.setGraphic(img);
         }catch (FileNotFoundException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
