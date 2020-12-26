@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class ProductDatabase implements Database{
 
-    public void insertProduct(Product product) throws SQLException {
+    public void insertProduct(Product product)  {
 
        /* Product product = new Product(rs.getString("name"),
                 rs.getString("ID"),

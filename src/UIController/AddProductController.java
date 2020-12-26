@@ -1,7 +1,7 @@
 package UIController;
 
-import JDBC.ProductDatabase;
 import Model.Product;
+import Repository.Repository;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,15 +15,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddProductController implements Initializable {
 
-    @FXML
-    private AnchorPane rootPane;
-    @FXML
-    private Button backButton;
+    @FXML private AnchorPane rootPane;
+    @FXML private Button backButton;
     @FXML private TextField nameTextField;
     @FXML private TextField categoryTextField;
     @FXML private TextField priceTextField;
@@ -31,9 +28,7 @@ public class AddProductController implements Initializable {
     @FXML private TextField brandTextField;
 
 
-    private ProductDatabase productDB = new ProductDatabase();
-
-
+    private final Repository repository = new Repository();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -66,7 +61,7 @@ public class AddProductController implements Initializable {
         }
     }
 
-    public void addButtonEventHandle() throws SQLException {
+    public void addButtonEventHandle() {
 
         Product product = new Product(nameTextField.getText(),
                 Double.parseDouble(priceTextField.getText()),
@@ -74,6 +69,6 @@ public class AddProductController implements Initializable {
                 Integer.parseInt(quantityTextField.getText()),
                 brandTextField.getText());
 
-        productDB.insertProduct(product);
+        repository.createProduct(product);
     }
 }
