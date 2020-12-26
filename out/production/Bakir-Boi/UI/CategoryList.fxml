@@ -12,9 +12,8 @@
    <children>
       <TableView minHeight="0.0" prefHeight="500.0" prefWidth="768.0">
          <columns>
-            <TableColumn prefWidth="200.0" resizable="false" text="ID" />
-            <TableColumn prefWidth="250.0" resizable="false" text="NAME" />
-            <TableColumn prefWidth="300.0" resizable="false" text="Description" />
+            <TableColumn prefWidth="290.0" resizable="false" text="NAME" />
+            <TableColumn prefWidth="477.0" resizable="false" text="Description" />
          </columns>
       </TableView>
       <HBox layoutX="99.0" layoutY="514.0" prefHeight="31.0" prefWidth="245.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="424.0" AnchorPane.topAnchor="514.0">

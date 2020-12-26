@@ -51,17 +51,23 @@
                   <Font size="25.0" />
                </font>
             </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Brand" wrappingWidth="106.90234375">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
          </children>
       </VBox>
       <VBox layoutX="452.0" layoutY="258.0" spacing="32.0" AnchorPane.bottomAnchor="128.0" AnchorPane.leftAnchor="452.0" AnchorPane.rightAnchor="302.0" AnchorPane.topAnchor="258.0">
          <children>
-            <TextField />
-            <TextField layoutX="10.0" layoutY="10.0" />
-            <TextField layoutX="10.0" layoutY="76.0" />
-            <TextField layoutX="10.0" layoutY="142.0" prefHeight="21.0" prefWidth="246.0" />
+            <TextField fx:id="nameTextField" />
+            <TextField fx:id="quantityTextField" layoutX="10.0" layoutY="10.0" />
+            <TextField fx:id="priceTextField" layoutX="10.0" layoutY="76.0" />
+            <TextField fx:id="categoryTextField" layoutX="10.0" layoutY="142.0" prefHeight="21.0" prefWidth="246.0" />
+            <TextField fx:id="brandTextField" prefHeight="21.0" prefWidth="246.0" />
          </children>
       </VBox>
-      <Button layoutX="464.0" layoutY="529.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="77.0" text="Add">
+      <Button fx:id="addButton" layoutX="462.0" layoutY="549.0" mnemonicParsing="false" onAction="#addButtonEventHandle" prefHeight="39.0" prefWidth="77.0" text="Add">
          <font>
             <Font size="18.0" />
          </font>

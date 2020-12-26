@@ -1,9 +1,12 @@
 package UIController;
 
+import JDBC.ProductDatabase;
+import Model.Product;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -12,6 +15,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddProductController implements Initializable {
@@ -20,6 +24,16 @@ public class AddProductController implements Initializable {
     private AnchorPane rootPane;
     @FXML
     private Button backButton;
+    @FXML private TextField nameTextField;
+    @FXML private TextField categoryTextField;
+    @FXML private TextField priceTextField;
+    @FXML private TextField quantityTextField;
+    @FXML private TextField brandTextField;
+
+
+    private ProductDatabase productDB = new ProductDatabase();
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -32,8 +46,6 @@ public class AddProductController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
 
 
     public void backButtonEventHandle() {
@@ -52,5 +64,16 @@ public class AddProductController implements Initializable {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void addButtonEventHandle() throws SQLException {
+
+        Product product = new Product(nameTextField.getText(),
+                Double.parseDouble(priceTextField.getText()),
+                categoryTextField.getText(),
+                Integer.parseInt(quantityTextField.getText()),
+                brandTextField.getText());
+
+        productDB.insertProduct(product);
     }
 }

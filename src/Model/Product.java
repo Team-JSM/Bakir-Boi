@@ -1,21 +1,30 @@
 package Model;
 
-public class products {
+import java.sql.Date;
+
+public class Product {
     private String name;
     private String ID;
-    private String price;
+    private Double price;
     private String category;
-    private String stockedDate;
-    private String quantity;
+    private Date stockedDate;
+    private int quantity;
     private String brand;
 
 
-    public products(String name, String ID, String price, String category, String stockedDate, String quantity, String brand) {
+    public Product(String name, String ID, Double price, String category, Date stockedDate, int quantity, String brand) {
         setName(name);
         setID(ID);
         setPrice(price);
         setCategory(category);
         setStockedDate(stockedDate);
+        setQuantity(quantity);
+        setBrand(brand);
+    }
+    public Product(String name, Double price, String category, int quantity, String brand) {
+        setName(name);
+        setPrice(price);
+        setCategory(category);
         setQuantity(quantity);
         setBrand(brand);
     }
@@ -36,11 +45,11 @@ public class products {
         this.ID = ID;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -52,19 +61,19 @@ public class products {
         this.category = category;
     }
 
-    public String getStockedDate() {
+    public Date getStockedDate() {
         return stockedDate;
     }
 
-    public void setStockedDate(String stockedDate) {
+    public void setStockedDate(Date stockedDate) {
         this.stockedDate = stockedDate;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
