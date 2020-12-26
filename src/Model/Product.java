@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Product {
     private String name;
-    private String ID;
+    private int ID;
     private Double price;
     private String category;
     private Date stockedDate;
@@ -12,7 +12,7 @@ public class Product {
     private String brand;
 
 
-    public Product(String name, String ID, Double price, String category, Date stockedDate, int quantity, String brand) {
+    public Product(String name, int ID, Double price, String category, Date stockedDate, int quantity, String brand) {
         setName(name);
         setID(ID);
         setPrice(price);
@@ -37,11 +37,11 @@ public class Product {
         this.name = name;
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 

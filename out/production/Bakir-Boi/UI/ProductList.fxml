@@ -10,13 +10,15 @@
 
 <AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.ProductListController">
    <children>
-      <TableView minHeight="0.0" prefHeight="536.0" prefWidth="750.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="productTable" minHeight="0.0" prefHeight="536.0" prefWidth="750.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn prefWidth="130.0" resizable="false" text="ID" />
-          <TableColumn prefWidth="185.0" resizable="false" text="NAME" />
-            <TableColumn prefWidth="185.0" resizable="false" text="CATEGORY" />
-            <TableColumn prefWidth="125.0" resizable="false" text="QUANTITY" />
-            <TableColumn prefWidth="130.0" resizable="false" text="PRICE" />
+          <TableColumn fx:id="idColumn" prefWidth="59.0" resizable="false" text="ID" />
+          <TableColumn fx:id="nameColumn" prefWidth="127.0" resizable="false" text="NAME" />
+            <TableColumn fx:id="categoryColumn" prefWidth="134.0" resizable="false" text="CATEGORY" />
+            <TableColumn fx:id="quantityColumn" prefWidth="89.0" resizable="false" text="QUANTITY" />
+            <TableColumn fx:id="priceColumn" prefWidth="101.0" resizable="false" text="PRICE" />
+            <TableColumn fx:id="stockedDateColumn" prefWidth="129.0" resizable="false" text="Stocked Date" />
+            <TableColumn fx:id="brandColumn" prefWidth="110.0" resizable="false" text="Brand" />
         </columns>
       </TableView>
       <Button fx:id="addProductButton" layoutX="350.0" layoutY="548.0" mnemonicParsing="false" onAction="#addProductButtonEventHandle" prefHeight="31.0" prefWidth="56.0" style="-fx-background-color: red;" text="+" textAlignment="CENTER" textFill="WHITE">

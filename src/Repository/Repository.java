@@ -2,6 +2,9 @@ package Repository;
 
 import JDBC.ProductDatabase;
 import Model.Product;
+import javafx.collections.ObservableList;
+
+import java.util.List;
 
 public class Repository {
 
@@ -9,6 +12,11 @@ public class Repository {
 
     public void createProduct(Product product)  {
         productDB.insertProduct(product);
+    }
+
+    public ObservableList<Product> getAllProduct()
+    {
+        return productDB.selectAllProducts();
     }
 
 
