@@ -14,6 +14,7 @@ public class Repository {
     final private CategoryDatabase categoryDB = new CategoryDatabase();
 
 
+
     public void createProduct(Product product)  {
         productDB.insertProduct(product);
     }
@@ -30,5 +31,9 @@ public class Repository {
 
     public void createCategory(Category category) {
         categoryDB.insertCategory(category);
+    }
+
+    public List<String> getAllCategoryByName() {
+        return categoryDB.selectAllCategoryByName();
     }
 }

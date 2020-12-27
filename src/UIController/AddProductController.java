@@ -1,11 +1,13 @@
 package UIController;
 
+import Model.Category;
 import Model.Product;
 import Repository.Repository;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,6 +17,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AddProductController implements Initializable {
@@ -22,7 +26,7 @@ public class AddProductController implements Initializable {
     @FXML private AnchorPane rootPane;
     @FXML private Button backButton;
     @FXML private TextField nameTextField;
-    @FXML private TextField categoryTextField;
+    @FXML private ChoiceBox<String> categoryChoiceBox;
     @FXML private TextField priceTextField;
     @FXML private TextField quantityTextField;
     @FXML private TextField brandTextField;
@@ -40,6 +44,7 @@ public class AddProductController implements Initializable {
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }
+        setCategoryOptions();
     }
 
 
@@ -61,11 +66,18 @@ public class AddProductController implements Initializable {
         }
     }
 
+    private void setCategoryOptions() {
+        List<String> categoryOptionList = repository.getAllCategoryByName();
+        categoryOptionList.add("Null");
+        categoryChoiceBox.getItems().addAll(categoryOptionList);
+        categoryChoiceBox.setValue("Null");
+    }
+
     public void addButtonEventHandle() {
 
         Product product = new Product(nameTextField.getText(),
                 Double.parseDouble(priceTextField.getText()),
-                categoryTextField.getText(),
+                categoryChoiceBox.getValue(),
                 Integer.parseInt(quantityTextField.getText()),
                 brandTextField.getText());
 

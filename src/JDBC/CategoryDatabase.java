@@ -6,6 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CategoryDatabase implements Database{
 
@@ -73,5 +75,28 @@ public class CategoryDatabase implements Database{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<String> selectAllCategoryByName() {
+        List<String> categoryList = new ArrayList<>();
+        final String sql = "SELECT name FROM CATEGORY";
+
+        try {
+            Connection con = establishConnection();
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+
+            while(rs.next()){
+                categoryList.add(rs.getString("name"));
+            }
+            con.close();
+            statement.close();
+            rs.close();
+            return categoryList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }
