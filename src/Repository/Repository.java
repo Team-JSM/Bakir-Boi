@@ -1,6 +1,8 @@
 package Repository;
 
+import JDBC.CategoryDatabase;
 import JDBC.ProductDatabase;
+import Model.Category;
 import Model.Product;
 import javafx.collections.ObservableList;
 
@@ -9,6 +11,8 @@ import java.util.List;
 public class Repository {
 
     final private ProductDatabase productDB = new ProductDatabase();
+    final private CategoryDatabase categoryDB = new CategoryDatabase();
+
 
     public void createProduct(Product product)  {
         productDB.insertProduct(product);
@@ -18,6 +22,13 @@ public class Repository {
     {
         return productDB.selectAllProducts();
     }
+    public ObservableList<Category> getAllCategory()
+    {
+        return categoryDB.selectAllCategory();
+    }
 
 
+    public void createCategory(Category category) {
+        categoryDB.insertCategory(category);
+    }
 }

@@ -2,7 +2,6 @@ package UIController;
 
 import Model.Product;
 import Repository.Repository;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,31 +15,33 @@ import javafx.scene.layout.AnchorPane;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class ProductListController implements Initializable {
 
     @FXML private AnchorPane rootPane;
-    @FXML private TableView productTable;
-    @FXML private TableColumn idColumn;
-    @FXML private TableColumn nameColumn;
-    @FXML private TableColumn priceColumn;
-    @FXML private TableColumn categoryColumn;
-    @FXML private TableColumn brandColumn;
-    @FXML private TableColumn quantityColumn;
-    @FXML private TableColumn stockedDateColumn;
+    @FXML private TableView<Product> productTable;
+    @FXML private TableColumn<Product, Integer> idColumn;
+    @FXML private TableColumn<Product, String> nameColumn;
+    @FXML private TableColumn<Product, Double> priceColumn;
+    @FXML private TableColumn<Product, String> categoryColumn;
+    @FXML private TableColumn<Product, String> brandColumn;
+    @FXML private TableColumn<Product, String> quantityColumn;
+    @FXML private TableColumn<Product, String> stockedDateColumn;
 
-    private Repository repository= new Repository();
+    private final Repository repository= new Repository();
     ObservableList<Product> productList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        fetchProduct();
+
         setColumns();
     }
 
     private void setColumns() {
+
+        fetchProduct();
+
         idColumn.setCellValueFactory(
                 new PropertyValueFactory<Product, Integer>("ID")
         );
@@ -64,8 +65,6 @@ public class ProductListController implements Initializable {
         );
 
         productTable.setItems(productList);
-
-
     }
 
     public void addProductButtonEventHandle(ActionEvent event) {
@@ -96,10 +95,6 @@ public class ProductListController implements Initializable {
 
     private void fetchProduct(){
         productList =  repository.getAllProduct();
-        if(productList == null)
-        {
-            System.out.println("lol");
-        }
     }
 
 

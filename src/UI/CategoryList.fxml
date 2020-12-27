@@ -10,10 +10,10 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.CategoryListController">
    <children>
-      <TableView minHeight="0.0" prefHeight="500.0" prefWidth="768.0">
+      <TableView fx:id="categoryTable" minHeight="0.0" prefHeight="500.0" prefWidth="768.0">
          <columns>
-            <TableColumn prefWidth="290.0" resizable="false" text="NAME" />
-            <TableColumn prefWidth="477.0" resizable="false" text="Description" />
+            <TableColumn fx:id="nameColumn" prefWidth="290.0" resizable="false" text="NAME" />
+            <TableColumn fx:id="descriptionColumn" prefWidth="477.0" resizable="false" text="Description" />
          </columns>
       </TableView>
       <HBox layoutX="99.0" layoutY="514.0" prefHeight="31.0" prefWidth="245.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="424.0" AnchorPane.topAnchor="514.0">
@@ -26,7 +26,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Text>
-            <TextField />
+            <TextField fx:id="nameTextField" />
          </children>
       </HBox>
       <HBox fillHeight="false" layoutX="360.0" layoutY="514.0" prefHeight="31.0" prefWidth="302.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="370.0" AnchorPane.rightAnchor="96.0" AnchorPane.topAnchor="514.0">
@@ -39,10 +39,10 @@
                   <Insets />
                </HBox.margin>
             </Text>
-            <TextArea maxHeight="31.0" prefHeight="31.0" />
+            <TextArea fx:id="descriptionTextArea" maxHeight="31.0" prefHeight="31.0" />
          </children>
       </HBox>
-      <Button layoutX="537.0" layoutY="561.0" mnemonicParsing="false" text="ADD CATEGORY">
+      <Button fx:id="addButton" layoutX="537.0" layoutY="561.0" mnemonicParsing="false" onAction="#addButtonEventHandle" text="ADD CATEGORY">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
