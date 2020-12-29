@@ -32,6 +32,31 @@ public class ProductDatabase implements Database{
         }
     }
 
+    public void updateProduct(Product product)  {
+
+        String sql = "UPDATE  product " +
+                     "SET name = ?, brand = ?, price = ?, quantity = ?" +
+                     "WHERE id = ?";
+
+        try {
+            Connection con = establishConnection();
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1,product.getName());
+            preparedStatement.setDouble(2,product.getPrice());
+            preparedStatement.setString(3,product.getCategory());
+            preparedStatement.setInt(4,product.getQuantity());
+            preparedStatement.setString(5,product.getBrand());
+
+            boolean res = preparedStatement.execute();
+            if(res){
+                System.out.println("row inserted");
+            }
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public ObservableList<Product> selectAllProducts(){
         ObservableList<Product> productList = FXCollections.observableArrayList();
         final String sql = "SELECT * FROM PRODUCT ORDER BY ID";

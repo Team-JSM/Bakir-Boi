@@ -31,7 +31,6 @@ public class AddProductController implements Initializable {
     @FXML private TextField quantityTextField;
     @FXML private TextField brandTextField;
 
-
     private final Repository repository = new Repository();
 
     @Override
