@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -8,47 +7,18 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 
 <AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.ProductListController">
    <children>
       <TableView fx:id="productTable" minHeight="0.0" prefHeight="536.0" prefWidth="750.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn fx:id="idColumn" editable="false" prefWidth="59.0" resizable="false" text="ID">
-              <cellValueFactory>
-                  <PropertyValueFactory property="ID" />
-              </cellValueFactory>
-          </TableColumn>
-          <TableColumn fx:id="nameColumn" onEditCommit="#columnEditListener" prefWidth="127.0" resizable="false" text="NAME">
-              <cellValueFactory>
-                  <PropertyValueFactory property="name" />
-              </cellValueFactory>
-          </TableColumn>
-            <TableColumn fx:id="categoryColumn" editable="false" prefWidth="134.0" resizable="false" text="CATEGORY">
-                <cellValueFactory>
-                    <PropertyValueFactory property="category" />
-                </cellValueFactory>
-            </TableColumn>
-            <TableColumn fx:id="quantityColumn" prefWidth="89.0" resizable="false" text="QUANTITY">
-                <cellValueFactory>
-                    <PropertyValueFactory property="quantity" />
-                </cellValueFactory>
-            </TableColumn>
-            <TableColumn fx:id="priceColumn" prefWidth="101.0" resizable="false" text="PRICE">
-                <cellValueFactory>
-                    <PropertyValueFactory property="price" />
-                </cellValueFactory>
-            </TableColumn>
-            <TableColumn fx:id="stockedDateColumn" editable="false" prefWidth="129.0" resizable="false" text="Stocked Date">
-                <cellValueFactory>
-                    <PropertyValueFactory property="stockedDate" />
-                </cellValueFactory>
-            </TableColumn>
-            <TableColumn fx:id="brandColumn" prefWidth="110.0" resizable="false" sortable="false" text="Brand">
-                <cellValueFactory>
-                    <PropertyValueFactory property="brand" />
-                </cellValueFactory>
-            </TableColumn>
+          <TableColumn fx:id="idColumn" prefWidth="59.0" resizable="false" text="ID" />
+          <TableColumn fx:id="nameColumn" prefWidth="127.0" resizable="false" text="NAME" />
+            <TableColumn fx:id="categoryColumn" prefWidth="134.0" resizable="false" text="CATEGORY" />
+            <TableColumn fx:id="quantityColumn" prefWidth="89.0" resizable="false" text="QUANTITY" />
+            <TableColumn fx:id="priceColumn" prefWidth="101.0" resizable="false" text="PRICE" />
+            <TableColumn fx:id="stockedDateColumn" prefWidth="129.0" resizable="false" text="Stocked Date" />
+            <TableColumn fx:id="brandColumn" prefWidth="110.0" resizable="false" text="Brand" />
         </columns>
       </TableView>
       <Button fx:id="addProductButton" layoutX="350.0" layoutY="548.0" mnemonicParsing="false" onAction="#addProductButtonEventHandle" prefHeight="31.0" prefWidth="56.0" style="-fx-background-color: red;" text="+" textAlignment="CENTER" textFill="WHITE">

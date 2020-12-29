@@ -1,47 +1,42 @@
 package Model;
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-
 import java.sql.Date;
 
 public class Product {
-    private final SimpleStringProperty name;
+    private String name;
     private int ID;
-    private final SimpleDoubleProperty price;
-    private final SimpleStringProperty category;
-    private SimpleObjectProperty<Date> stockedDate;
-    private final SimpleIntegerProperty quantity;
-    private final SimpleStringProperty brand;
+    private Double price;
+    private String category;
+    private Date stockedDate;
+    private int quantity;
+    private String brand;
 
 
     public Product(String name, int ID, Double price, String category, Date stockedDate, int quantity, String brand) {
+        setName(name);
         setID(ID);
-        this.name = new SimpleStringProperty(name);
-        this.price = new SimpleDoubleProperty(price);
-        this.category = new SimpleStringProperty(category);
-        this.stockedDate = new SimpleObjectProperty<>(stockedDate);
-        this.quantity = new SimpleIntegerProperty(quantity);
-        this.brand = new SimpleStringProperty(brand);
-
+        setPrice(price);
+        setCategory(category);
+        setStockedDate(stockedDate);
+        setQuantity(quantity);
+        setBrand(brand);
     }
     public Product(String name, Double price, String category, int quantity, String brand) {
-        this.name = new SimpleStringProperty(name);
-        this.price = new SimpleDoubleProperty(price);
-        this.category = new SimpleStringProperty(category);
-        this.quantity = new SimpleIntegerProperty(quantity);
-        this.brand = new SimpleStringProperty(brand);
+        setName(name);
+        setPrice(price);
+        setCategory(category);
+        setQuantity(quantity);
+        setBrand(brand);
     }
 
     public String getName() {
-        return name.get();
+        return name;
     }
 
     public void setName(String name) {
-        this.name.set(name);
+        this.name = name;
     }
+
     public int getID() {
         return ID;
     }
@@ -50,45 +45,43 @@ public class Product {
         this.ID = ID;
     }
 
-
     public Double getPrice() {
-        return price.get();
+        return price;
     }
 
     public void setPrice(Double price) {
-        this.price.set(price);
+        this.price = price;
     }
 
     public String getCategory() {
-        return category.get();
+        return category;
     }
 
     public void setCategory(String category) {
-        this.category.set(category);
-    }
-
-    public String getBrand() {
-        return brand.get();
-    }
-
-    public void setBrand(String brand) {
-        this.brand.set(brand);
-    }
-
-    public int getQuantity() {
-        return quantity.get();
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity.set(quantity);
+        this.category = category;
     }
 
     public Date getStockedDate() {
-        return stockedDate.get();
+        return stockedDate;
     }
 
     public void setStockedDate(Date stockedDate) {
-        this.stockedDate.set(stockedDate);
+        this.stockedDate = stockedDate;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 }
