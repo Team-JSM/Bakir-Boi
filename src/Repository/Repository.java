@@ -28,7 +28,6 @@ public class Repository {
         return categoryDB.selectAllCategory();
     }
 
-
     public void createCategory(Category category) {
         categoryDB.insertCategory(category);
     }
@@ -36,4 +35,9 @@ public class Repository {
     public List<String> getAllCategoryByName() {
         return categoryDB.selectAllCategoryByName();
     }
+
+    public void updateProductByID(String field,Object newValue,int ID){
+        productDB.updateProductByID(field,newValue,ID);
+    }
+
 }

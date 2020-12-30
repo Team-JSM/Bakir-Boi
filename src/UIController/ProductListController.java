@@ -9,8 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.converter.DoubleStringConverter;
+import javafx.util.converter.IntegerStringConverter;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,11 +24,11 @@ public class ProductListController implements Initializable {
     @FXML private AnchorPane rootPane;
     @FXML private TableView<Product> productTable;
     @FXML private TableColumn<Product, Integer> idColumn;
-    @FXML private TableColumn<Product, String> nameColumn;
-    @FXML private TableColumn<Product, Double> priceColumn;
+    @FXML private TableColumn<Product, String> name;
+    @FXML private TableColumn<Product, Double> price;
     @FXML private TableColumn<Product, String> categoryColumn;
-    @FXML private TableColumn<Product, String> brandColumn;
-    @FXML private TableColumn<Product, String> quantityColumn;
+    @FXML private TableColumn<Product, String> brand;
+    @FXML private TableColumn<Product, Integer> quantity;
     @FXML private TableColumn<Product, String> stockedDateColumn;
 
     private final Repository repository= new Repository();
@@ -34,37 +36,12 @@ public class ProductListController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        setColumns();
-    }
-
-    private void setColumns() {
-
         fetchProduct();
-
-        idColumn.setCellValueFactory(
-                new PropertyValueFactory<Product, Integer>("ID")
-        );
-        nameColumn.setCellValueFactory(
-                new PropertyValueFactory<Product,String>("name")
-        );
-        categoryColumn.setCellValueFactory(
-                new PropertyValueFactory<Product,String>("category")
-        );
-        priceColumn.setCellValueFactory(
-                new PropertyValueFactory<Product,Double>("price")
-        );
-        brandColumn.setCellValueFactory(
-                new PropertyValueFactory<Product,String>("brand")
-        );
-        quantityColumn.setCellValueFactory(
-                new PropertyValueFactory<Product,String>("quantity")
-        );
-        stockedDateColumn.setCellValueFactory(
-                new PropertyValueFactory<Product,String>("stockedDate")
-        );
-
         productTable.setItems(productList);
+        name.setCellFactory(TextFieldTableCell.forTableColumn());
+        quantity.setCellFactory(TextFieldTableCell.<Product, Integer>forTableColumn(new IntegerStringConverter()));
+        brand.setCellFactory(TextFieldTableCell.forTableColumn());
+        price.setCellFactory(TextFieldTableCell.<Product, Double>forTableColumn(new DoubleStringConverter()));
     }
 
     public void addProductButtonEventHandle(ActionEvent event) {
@@ -97,5 +74,7 @@ public class ProductListController implements Initializable {
         productList =  repository.getAllProduct();
     }
 
-
+    public void columnEditListener(TableColumn.CellEditEvent<Product, Object> e) {
+        repository.updateProductByID(e.getTableColumn().getId(),e.getNewValue(),e.getRowValue().getID());
+    }
 }
