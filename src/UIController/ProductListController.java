@@ -2,13 +2,14 @@ package UIController;
 
 import Model.Product;
 import Repository.Repository;
+import javafx.beans.binding.Bindings;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.DoubleStringConverter;
@@ -32,16 +33,36 @@ public class ProductListController implements Initializable {
     @FXML private TableColumn<Product, String> stockedDateColumn;
 
     private final Repository repository= new Repository();
-    ObservableList<Product> productList;
+    private ObservableList<Product> productList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         fetchProduct();
         productTable.setItems(productList);
         name.setCellFactory(TextFieldTableCell.forTableColumn());
-        quantity.setCellFactory(TextFieldTableCell.<Product, Integer>forTableColumn(new IntegerStringConverter()));
+        quantity.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         brand.setCellFactory(TextFieldTableCell.forTableColumn());
-        price.setCellFactory(TextFieldTableCell.<Product, Double>forTableColumn(new DoubleStringConverter()));
+        price.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        productTable.setRowFactory(tableView -> setContextMenu());
+    }
+
+
+    private TableRow<Product> setContextMenu() {
+        final TableRow<Product> row = new TableRow<>();
+        final ContextMenu contextMenu = new ContextMenu();
+        final MenuItem removeMenuItem = new MenuItem("Remove");
+        removeMenuItem.setOnAction((event -> {
+            productTable.getItems().remove(row.getItem());
+            repository.deleteProductByID(row.getItem().getID());
+        }));
+        contextMenu.getItems().add(removeMenuItem);
+        // Set context menu on row, but use a binding to make it only show for non-empty rows:
+        row.contextMenuProperty().bind(
+                Bindings.when(row.emptyProperty())
+                        .then((ContextMenu)null)
+                        .otherwise(contextMenu)
+        );
+        return row ;
     }
 
     public void addProductButtonEventHandle(ActionEvent event) {
@@ -75,6 +96,20 @@ public class ProductListController implements Initializable {
     }
 
     public void columnEditListener(TableColumn.CellEditEvent<Product, Object> e) {
-        repository.updateProductByID(e.getTableColumn().getId(),e.getNewValue(),e.getRowValue().getID());
+        if(e.getNewValue().toString().isEmpty()){
+            showAlert(Alert.AlertType.ERROR,"This field cant be empty!");
+            productTable.refresh();
+        }else {
+            repository.updateProductByID(e.getTableColumn().getId(), e.getNewValue(), e.getRowValue().getID());
+            showAlert(Alert.AlertType.ERROR,"This field cant be empty!");
+        }
     }
+
+    private void showAlert(Alert.AlertType alertType,String alertMessage){
+        Alert alert = new Alert(alertType);
+        alert.setContentText(alertMessage);
+        alert.show();
+    }
+
+
 }

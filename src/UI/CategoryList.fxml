@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.cell.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -7,13 +8,22 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 
 <AnchorPane prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.CategoryListController">
    <children>
-      <TableView fx:id="categoryTable" minHeight="0.0" prefHeight="500.0" prefWidth="768.0">
+      <TableView fx:id="categoryTable" editable="true" minHeight="0.0" prefHeight="500.0" prefWidth="768.0">
          <columns>
-            <TableColumn fx:id="nameColumn" prefWidth="290.0" resizable="false" text="NAME" />
-            <TableColumn fx:id="descriptionColumn" prefWidth="477.0" resizable="false" text="Description" />
+            <TableColumn fx:id="name" onEditCommit="#columnEditListener" prefWidth="290.0" resizable="false" text="NAME">
+               <cellValueFactory>
+                  <PropertyValueFactory property="name" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="description" onEditCommit="#columnEditListener" prefWidth="477.0" resizable="false" text="Description">
+               <cellValueFactory>
+                  <PropertyValueFactory property="description" />
+               </cellValueFactory>
+            </TableColumn>
          </columns>
       </TableView>
       <HBox layoutX="99.0" layoutY="514.0" prefHeight="31.0" prefWidth="245.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="424.0" AnchorPane.topAnchor="514.0">

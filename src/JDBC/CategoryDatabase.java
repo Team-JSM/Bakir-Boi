@@ -2,6 +2,7 @@ package JDBC;
 
 import Model.Category;
 import Model.Product;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -75,6 +76,49 @@ public class CategoryDatabase implements Database{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void updateCategoryByName(String field,Object newValue,String name){
+        String sql = "UPDATE category " +
+                "SET "+ field + " = '" + newValue +
+                "' WHERE name = '" + name + "'";
+
+        System.out.println(sql);
+
+        try {
+            Connection con = establishConnection();
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+
+            con.close();
+            statement.close();
+            rs.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void deleteCategoryByName(String name){
+        String sql = "DELETE FROM category " +
+                     "WHERE name = '" + name + "'";
+
+        System.out.println(sql);
+
+        try {
+            Connection con = establishConnection();
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+
+            con.close();
+            statement.close();
+            rs.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public List<String> selectAllCategoryByName() {

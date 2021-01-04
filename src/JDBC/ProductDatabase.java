@@ -31,6 +31,28 @@ public class ProductDatabase implements Database{
 
     }
 
+    public void deleteProductByID(int ID){
+        String sql = "DELETE FROM product " +
+               // "SET "+ field + " = '" + newValue +
+                " WHERE id = " + ID;
+
+        System.out.println(sql);
+
+        try {
+            Connection con = establishConnection();
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+
+            con.close();
+            statement.close();
+            rs.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void insertProduct(Product product)  {
 
         String sql = "INSERT INTO product(name,price,category,quantity,brand) values(?,?,?,?,?)";
