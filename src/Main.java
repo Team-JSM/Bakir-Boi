@@ -15,8 +15,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+       FXMLLoader loader=new FXMLLoader(new File("UI/MainMenu.fxml").toURI().toURL());
+        Parent root=loader.load();
 
-        Parent root = FXMLLoader.load(getClass().getResource("UI/MainMenu.fxml"));
+
+       // Parent root = FXMLLoader.load(getClass().getResource("/UI/MainMenu.fxml"));
+
+/*
+        Parent root =FXMLLoader.load(getClass().getResource("UI/MainMenu.fxml"));
+*/
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Bakir Khata");

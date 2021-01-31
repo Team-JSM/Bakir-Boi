@@ -16,7 +16,7 @@ public class CategoryDatabase implements Database{
     @Override
     public Connection establishConnection() throws SQLException {
         try {
-            Class.forName(DRIVER);
+            Class.forName("com.mysql.cj.jdbc.Driver");
             return DriverManager.getConnection
                     (URL, USERNAME, PASSWORD);
         } catch (ClassNotFoundException e) {
