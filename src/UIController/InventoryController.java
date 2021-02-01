@@ -79,6 +79,24 @@ public class InventoryController implements Initializable {
 
     }
 
+    public void draftButtonEventHandler(ActionEvent event){
+        try {
+            FileInputStream f = new FileInputStream(
+                    new File(System
+                            .getProperty("user.dir")
+                            .concat("\\src\\UI\\" +
+                                    "DraftList.fxml")));
+
+            FXMLLoader loader = new FXMLLoader();
+            AnchorPane newPane = loader.load(f);
+
+            rightPane.getChildren().setAll(newPane);
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
 
 
