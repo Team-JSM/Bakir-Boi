@@ -9,13 +9,10 @@ import java.sql.*;
 
 public class ProductDatabase implements Database{
 
-    public void updateProductByID(String field,Object newValue,int ID){
+    public void updateProductByID(String field,Object newValue,int ID)  {
         String sql = "UPDATE product " +
                      "SET "+ field + " = '" + newValue +
                      "' WHERE id = " + ID;
-
-        System.out.println(sql);
-
         try {
             Connection con = establishConnection();
             Statement statement = con.createStatement();
@@ -25,7 +22,7 @@ public class ProductDatabase implements Database{
             statement.close();
             rs.close();
 
-        } catch (SQLException e) {
+        } catch (NumberFormatException | SQLException e) {
             e.printStackTrace();
         }
 
@@ -47,7 +44,7 @@ public class ProductDatabase implements Database{
             statement.close();
             rs.close();
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

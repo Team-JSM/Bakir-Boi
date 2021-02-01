@@ -7,6 +7,7 @@ import Model.Product;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class Repository {
@@ -27,13 +28,12 @@ public class Repository {
     public List<String> getAllCategoryByName() {
         return categoryDB.selectAllCategoryByName();
     }
-    public void updateProductByID(String field,Object newValue,int ID){
-        productDB.updateProductByID(field,newValue,ID);
+    public void updateProductByID(String field,Object newValue,int ID) {
+         productDB.updateProductByID(field,newValue,ID);
     }
     public void deleteProductByID(int productID){
         productDB.deleteProductByID(productID);
     }
-
 
     public ObservableList<Category> getAllCategory()
     {
@@ -44,6 +44,9 @@ public class Repository {
     }
     public void deleteCategoryByName(String name){
         categoryDB.deleteCategoryByName(name);
+    }
+    public boolean findCategoryByName(String categoryName) {
+        return categoryDB.findCategoryByName(categoryName);
     }
     public void updateCategoryByName(String field,Object newValue,String name){
         categoryDB.updateCategoryByName(field,newValue,name);

@@ -18,6 +18,7 @@ import javafx.util.converter.IntegerStringConverter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ProductListController implements Initializable {
@@ -96,13 +97,13 @@ public class ProductListController implements Initializable {
     }
 
     public void columnEditListener(TableColumn.CellEditEvent<Product, Object> e) {
-        if(e.getNewValue().toString().isEmpty()){
+        if(e.getNewValue()==null){
             showAlert(Alert.AlertType.ERROR,"This field cant be empty!");
-            productTable.refresh();
         }else {
             repository.updateProductByID(e.getTableColumn().getId(), e.getNewValue(), e.getRowValue().getID());
-            showAlert(Alert.AlertType.ERROR,"This field cant be empty!");
         }
+        fetchProduct();
+        productTable.setItems(productList);
     }
 
     private void showAlert(Alert.AlertType alertType,String alertMessage){

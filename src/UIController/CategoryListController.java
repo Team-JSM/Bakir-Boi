@@ -64,8 +64,15 @@ public class CategoryListController implements Initializable {
         Category category = new Category(
                 nameTextField.getText(),
                 descriptionTextArea.getText());
-        repository.createCategory(category);
-        categoryTable.refresh();
+        if(repository.findCategoryByName(nameTextField.getText())){
+            showAlert(Alert.AlertType.ERROR,"Category name already exist");
+        }else{
+            repository.createCategory(category);
+            categoryList.add(category);
+            categoryTable.refresh();
+        }
+
+
     }
 
     public void columnEditListener(TableColumn.CellEditEvent<Category, Object> e) {

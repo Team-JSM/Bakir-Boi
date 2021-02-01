@@ -83,7 +83,6 @@ public class CategoryDatabase implements Database{
                 "SET "+ field + " = '" + newValue +
                 "' WHERE name = '" + name + "'";
 
-        System.out.println(sql);
 
         try {
             Connection con = establishConnection();
@@ -98,6 +97,36 @@ public class CategoryDatabase implements Database{
             e.printStackTrace();
         }
 
+    }
+
+    public boolean findCategoryByName(String name){
+        final String sql = "SELECT * FROM CATEGORY WHERE  name = '" + name + "'";
+
+        Connection con;
+        Statement statement;
+        ResultSet rs;
+
+        try {
+            con = establishConnection();
+            statement = con.createStatement();
+            rs = statement.executeQuery(sql);
+            int count = 0;
+
+            while(rs.next()){
+                count++;
+            }
+            con.close();
+            statement.close();
+            rs.close();
+            if(count <= 0){
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return true;
     }
 
     public void deleteCategoryByName(String name){

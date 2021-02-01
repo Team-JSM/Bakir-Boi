@@ -35,6 +35,16 @@ public class Product {
         this.brand = new SimpleStringProperty(brand);
     }
 
+    public void updateProduct(Product newProduct) {
+        setName(newProduct.getName());
+        setBrand(newProduct.getBrand());
+        setPrice(newProduct.getPrice());
+        setID(newProduct.getID());
+        setCategory(newProduct.getCategory());
+        setStockedDate(newProduct.getStockedDate());
+        setQuantity(newProduct.getQuantity());
+    }
+
     public String getName() {
         return name.get();
     }
