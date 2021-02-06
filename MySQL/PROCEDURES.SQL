@@ -1,0 +1,20 @@
+USE `jisan`;
+DROP procedure IF EXISTS `SETID`;
+
+DELIMITER $$
+USE `jisan`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SETID`(IN IDGEN VARCHAR(20),IN COMPANY VARCHAR(20))
+BEGIN
+        DECLARE UNIQUEID VARCHAR(30);
+        DECLARE SUBS  VARCHAR(30);
+
+        IF(COMPANY='PEPSI') THEN
+                SUBS ='PP';
+        
+
+        SET UNIQUEID = CONCAT(IDGEN,SUBS) 
+        INSERT INTO product_table SET product_table.ID=UNIQUEID,PRODUCT_TABLE.PRODUCT_NAME=COMPANY ;
+
+END$$
+
+DELIMITER ;

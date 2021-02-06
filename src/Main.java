@@ -24,6 +24,7 @@ public class Main extends Application {
 /*
         Parent root =FXMLLoader.load(getClass().getResource("UI/MainMenu.fxml"));
 */
+
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Bakir Khata");
